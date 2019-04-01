@@ -1,0 +1,42 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+	user-select: none;
+}
+
+.log {
+	width: 250px;
+	margin: auto;
+	margin-top: 4px;
+	padding: 4px;
+	background-color: paleblue;
+}
+
+#challenge {
+	background-color: black;
+	color: white;
+	width: 500px;
+	height: 40px;
+}
+
+#hp {
+	font-weight: bold;
+	color: red;
+}
+
+#prizes {
+	font-size: 3em;
+}
+
+.button {
+	width: 250px;
+	margin: auto;
+	margin-top: 4px;
+	padding: 4px;
+	border: 2px solid black;
+}
+
+.button:hover {
+	background-color: lightgrey;
+	cursor: pointer;
+}
