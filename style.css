@@ -11,32 +11,35 @@ body {
 	margin-top: 4px;
 	padding: 4px;
 	background-color: paleblue;
+	font-size: 60px;
 }
 
 #challenge {
 	background-color: black;
 	color: white;
 	width: 100%;
+	overflow-x: hidden;
 	height: 100px;
 	font-size: 48px;
 	margin: 0;
 }
 
 #hp {
-	font-weight: bold;
 	color: red;
-	font-size: 100px;
+	border-right: 2px solid black;
+	padding-right: 30px;
 }
 
 #prizes {
-	font-size: 100px;
+	border-left: 2px solid black;
+	padding-left: 30px;
 }
 
 .button {
 	width: 90%;
-	height: 240px;
-	line-height: 240px;
-	font-size: 80px;
+	height: 160px;
+	line-height: 160px;
+	font-size: 40px;
 	margin: auto;
 	margin-top: 10px;
 	padding: 4px;
