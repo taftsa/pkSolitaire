@@ -57,17 +57,17 @@ body {
 }
 
 .poke, #reset {
-	height: 90px;
-	line-height: 90px;
+	height: 80px;
+	line-height: 80px;
 	font-size: 40px;
 	border: 2px solid black;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin-left: 12px;
+	margin-right: 12px;
 	display: inline-block;
 }
 
 .poke {
-	width: 90px;
+	width: 80px;
 }
 
 #reset {
