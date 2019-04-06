@@ -19,20 +19,13 @@ body {
 	color: white;
 	width: 100%;
 	overflow-x: hidden;
-	height: 100px;
+	height: 120px;
 	font-size: 48px;
 	margin: 0;
 }
 
 #hp {
 	color: red;
-	border-right: 2px solid black;
-	padding-right: 30px;
-}
-
-#prizes {
-	border-left: 2px solid black;
-	padding-left: 30px;
 }
 
 .button {
