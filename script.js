@@ -5,7 +5,7 @@ $(document).ready(function(){
 $(document).on('click', '#hit', function(){
 	var hp = $('#hp').html() - 10;
 	if (hp == 0) {
-		$('#challenge').html('You win!');
+		$('#output').html('You win!');
 	};
 	$('#hp').html(hp);
 });
@@ -18,7 +18,7 @@ $(document).on('click', '#heal', function(){
 $(document).on('click', '#faint', function(){
 	var prizes = $('#prizes').html()  - 1;
 	if (prizes == 0) {
-		$('#challenge').html('You lose.');
+		$('#output').html('You lose.');
 	};
 	$('#prizes').html(prizes);
 });
@@ -34,10 +34,34 @@ $(document).on('click', '#turn', function(){
 		whichOne = 19;
 	};
 	
-	$('#challenge').html(challenge[whichOne]);
+	$('#output').html(challenges[whichOne]);
+	
+	confirm();
 });
 
-var challenge = [
+$(document).on('click', '#coin', function(){
+	if (Math.floor(Math.random() * 2) == 1) {
+		$('#output').html('Tails');
+	} else {
+		$('#output').html('Heads');
+	};
+	confirm();
+});
+
+function confirm() {
+	$('#output').css('background-color', '#282828');
+	setTimeout(function(){
+		$('#output').css('background-color', 'black');
+	}, 100);
+	setTimeout(function(){
+		$('#output').css('background-color', '#282828');
+	}, 200);
+	setTimeout(function(){
+		$('#output').css('background-color', 'black');
+	}, 300);
+};
+
+var challenges = [
 	"Take 40 damage.",
 	"Take 30 damage.",
 	"Take 20 damage.",
