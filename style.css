@@ -49,3 +49,31 @@ body {
 	padding: 4px;
 	border: 2px solid black;
 }
+
+#damage {
+	margin-top: 10px;
+	height: 80px;
+	vertical-align: middle;
+}
+
+.poke, #reset {
+	height: 90px;
+	line-height: 90px;
+	font-size: 40px;
+	border: 2px solid black;
+	margin-left: 20px;
+	margin-right: 20px;
+	display: inline-block;
+}
+
+.poke {
+	width: 90px;
+}
+
+#reset {
+	width: 180px;
+}
+
+.active {
+	background-color: lightblue;
+}

@@ -1,3 +1,5 @@
+var reset = 0;
+
 $(document).ready(function(){
 	
 });
@@ -46,6 +48,30 @@ $(document).on('click', '#coin', function(){
 		$('#output').html('Heads');
 	};
 	confirm();
+});
+
+$(document).on('click', '#reset', function(){
+	if (reset == 0) {
+		reset = 1;
+		$('#reset').css('background-color', 'black');
+		$('#reset').css('color', 'white');
+	} else {
+		reset = 0;
+		$('#reset').css('background-color', '');
+		$('#reset').css('color', '');
+	};
+});
+
+$(document).on('click', '.poke', function(){
+	if (reset == 1) {
+		$(this).html('0');
+		reset = 0;
+		$('#reset').css('background-color', '');
+		$('#reset').css('color', '');
+	} else {
+		var newDmg = ($(this).html() / 1) + 10;
+		$(this).html(newDmg);
+	};
 });
 
 function confirm() {
