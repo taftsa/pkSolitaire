@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 });
 
-$(document).on('click', '#output', function(){
+$(document).on('click', '#cover', function(){
 	var el = document.documentElement,
 	rfs = el.requestFullscreen
       || el.webkitRequestFullScreen
@@ -12,6 +12,7 @@ $(document).on('click', '#output', function(){
       || el.msRequestFullscreen
       ;
      rfs.call(el);
+	 $('#cover').remove();
 });
 
 $(document).on('click', '#hit', function(){
