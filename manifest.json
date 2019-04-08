@@ -14,7 +14,7 @@
     }
   ],
   "background_color": "black",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait",
   "theme_color": "black"
 }

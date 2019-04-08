@@ -1,7 +1,13 @@
 var reset = 0;
 
 $(document).ready(function(){
-
+	var el = document.documentElement,
+	rfs = el.requestFullscreen
+      || el.webkitRequestFullScreen
+      || el.mozRequestFullScreen
+      || el.msRequestFullscreen
+      ;
+     rfs.call(el);
 });
 
 $(document).on('click', '#cover', function(){
