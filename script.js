@@ -1,4 +1,6 @@
 var reset = 0;
+var sw = 0;
+var swOne;
 
 $(document).ready(function(){
 	var el = document.documentElement,
@@ -68,12 +70,41 @@ $(document).on('click', '#reset', function(){
 	};
 });
 
+$(document).on('click', '#switch', function(){
+	if (sw == 0) {
+		sw = 1;
+		$('#switch').css('background-color', 'black');
+		$('#switch').css('color', 'white');
+		$('.thisun').removeClass('thisun');
+	} else {
+		sw = 0;
+		$('#switch').css('background-color', '');
+		$('#switch').css('color', '');
+	};
+});
+
+
+
 $(document).on('click', '.poke', function(){
 	if (reset == 1) {
 		$(this).html('0');
 		reset = 0;
 		$('#reset').css('background-color', '');
 		$('#reset').css('color', '');
+	} else if (sw == 1) {
+		sw = 2;
+		swOne = $(this).html();
+		$(this).css('background-color', 'grey');
+		$(this).css('color', 'white');
+		$(this).addClass('thisun');
+	} else if (sw == 2) {
+		$('.thisun').html($(this).html());
+		$(this).html(swOne);
+		$('.thisun, #switch').css('background-color', '');
+		$('.thisun, #switch').css('color', '');
+		$('.thisun').removeClass('thisun');
+		sw = 0;
+		swOne = null;
 	} else {
 		var newDmg = ($(this).html() / 1) + 10;
 		$(this).html(newDmg);
