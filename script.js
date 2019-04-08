@@ -1,15 +1,11 @@
 var reset = 0;
 var sw = 0;
 var swOne;
+var faint = 0;
 
-$(document).ready(function(){
-	var el = document.documentElement,
-	rfs = el.requestFullscreen
-      || el.webkitRequestFullScreen
-      || el.mozRequestFullScreen
-      || el.msRequestFullscreen
-      ;
-     rfs.call(el);
+$(document).on('click', '.start', function(){
+	$(this).html('End Turn');
+	$(this).removeClass('start');
 });
 
 $(document).on('click', '#hit', function(){
@@ -31,22 +27,18 @@ $(document).on('click', '#faint', function(){
 		$('#output').html('You lose.');
 	};
 	$('#prizes').html(prizes);
+	
+	$('.active').html('');
+	$('.active').removeClass('a b c po pa');
+	
+	prepSwitch();
+	switchOne('.active');
+	turn();
+	$('#output').prepend('Select a new PK. ');
 });
 
 $(document).on('click', '#turn', function(){
-	var whichOne = 0;
-	
-	while (Math.floor(Math.random() * 9) < 8) {
-		whichOne += 1;
-	};
-	
-	if (whichOne > 19) {
-		whichOne = 19;
-	};
-	
-	$('#output').html(challenges[whichOne]);
-	
-	confirm();
+	turn();
 });
 
 $(document).on('click', '#coin', function(){
@@ -72,10 +64,7 @@ $(document).on('click', '#reset', function(){
 
 $(document).on('click', '#switch', function(){
 	if (sw == 0) {
-		sw = 1;
-		$('#switch').css('background-color', 'black');
-		$('#switch').css('color', 'white');
-		$('.thisun').removeClass('thisun');
+		prepSwitch();
 	} else {
 		sw = 0;
 		$('#switch').css('background-color', '');
@@ -83,20 +72,14 @@ $(document).on('click', '#switch', function(){
 	};
 });
 
-
-
-$(document).on('click', '.poke', function(){
+$(document).on('click', '.pk', function(){
 	if (reset == 1) {
-		$(this).html('0');
+		$(this).html('');
 		reset = 0;
 		$('#reset').css('background-color', '');
 		$('#reset').css('color', '');
 	} else if (sw == 1) {
-		sw = 2;
-		swOne = $(this).html();
-		$(this).css('background-color', 'grey');
-		$(this).css('color', 'white');
-		$(this).addClass('thisun');
+		switchOne(this);
 	} else if (sw == 2) {
 		$('.thisun').html($(this).html());
 		$(this).html(swOne);
@@ -105,6 +88,8 @@ $(document).on('click', '.poke', function(){
 		$('.thisun').removeClass('thisun');
 		sw = 0;
 		swOne = null;
+	} else if ($(this).html() == '') {
+		$(this).html('0');
 	} else {
 		var newDmg = ($(this).html() / 1) + 10;
 		$(this).html(newDmg);
@@ -124,27 +109,57 @@ function confirm() {
 	}, 300);
 };
 
-var challenges = [
-	"Take 40 damage.",
-	"Take 30 damage.",
-	"Take 20 damage.",
-	"Take 10 damage.",
-	"Take 40 damage.",
-	"Take 30 damage.",
-	"Take 20 damage.",
-	"Take 10 damage.",
-	"Switch your active Pokemon with one of your benched Pokemon.",
-	"Remove one energy card from yor active Pokemon.",
-	"Your leftmost benched Pokemon takes 30 damage.",
-	"Your rightmost benched Pokemon takes 30 damage.",
-	"Select three of your benched Pokemon. Each takes 20 damage.",
-	"Take 40 damage.",
-	"Take 30 damage.",
-	"Take 20 damage.",
-	"Take 10 damage.",
-	"Take 100 damage.",
-	"Discard 2 cards at random from your hand.",
-	"You active Pokemon is now asleep."
-];
+function turn() {
+	var whichOne = 0;
+	
+	while (Math.floor(Math.random() * 9) < 8) {
+		whichOne += 1;
+	};
+	
+	if (whichOne > 19) {
+		whichOne = 21;
+	};
+	
+	$('#output').html(challenges[whichOne]);
+	
+	confirm();
+};
 
-//CHECK THE RANDOMNESS DISTRIBUTION
+function prepSwitch() {
+	sw = 1;
+	$('#switch').css('background-color', 'black');
+	$('#switch').css('color', 'white');
+	$('.thisun').removeClass('thisun');
+};
+
+function switchOne(a) {
+	sw = 2;
+	swOne = $(a).html();
+	$(a).css('background-color', 'grey');
+	$(a).css('color', 'white');
+	$(a).addClass('thisun');
+};
+
+var challenges = [
+	'Switch your active PK with one of your benched PK.',
+	'Remove one energy card from yor active PK.',
+	'Your leftmost benched PK takes 30 damage.',
+	'Your rightmost benched PK takes 30 damage.',
+	'Select three of your benched PK. Each takes 20 damage.',
+	'Take 90 damage.',
+	'Take 80 damage.',
+	'Take 70 damage.',
+	'Take 60 damage.',
+	'Take 50 damage.',
+	'Take 40 damage.',
+	'Take 30 damage.',
+	'Take 20 damage.',
+	'Take 10 damage.',
+	'Take 100 damage.',
+	'Discard 2 cards at random from your hand.',
+	'You active PK is now asleep.',
+	'You active PK is now confused.',
+	'You active PK is now poisoned.',
+	'You active PK is now paralyzed.',
+	'You active PK is now burned.',
+];

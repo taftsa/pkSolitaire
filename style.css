@@ -25,11 +25,11 @@ body {
 }
 
 .button {
-	width: 45%;
+	width: 48%;
 	margin: 1px;
 	display: inline-block;
-	height: 80px;
-	line-height: 80px;
+	height: 120px;
+	line-height: 120px;
 	font-size: 30px;
 	margin: auto;
 	margin-top: 6px;
@@ -43,23 +43,40 @@ body {
 	vertical-align: middle;
 }
 
-.poke, #reset, #switch {
+.pk, .pkButton {
 	height: 80px;
 	line-height: 80px;
 	font-size: 24px;
 	border: 2px solid black;
 	margin: 1%;
 	display: inline-block;
+	vertical-align: middle;
 }
 
-.poke {
+.pk {
 	width: 16%;
 }
 
-#reset, #switch {
-	width: 30%;
+.pkButton {
+	width: 28.5%;
 }
 
-.active {
-	background-color: lightblue;
+.b {
+	border-left: 2px solid red;
+}
+
+.po {
+	border-right: 2px solid green;
+}
+
+.pa {
+	border-top: 2px solid yellow;
+}
+
+.c {
+	border-top: 2px solid orange;
+}
+
+.a {
+	border-top: 2px solid purple;
 }
