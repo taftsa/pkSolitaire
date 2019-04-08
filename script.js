@@ -10,17 +10,6 @@ $(document).ready(function(){
      rfs.call(el);
 });
 
-$(document).on('click', '#cover', function(){
-	var el = document.documentElement,
-	rfs = el.requestFullscreen
-      || el.webkitRequestFullScreen
-      || el.mozRequestFullScreen
-      || el.msRequestFullscreen
-      ;
-     rfs.call(el);
-	 $('#cover').remove();
-});
-
 $(document).on('click', '#hit', function(){
 	var hp = $('#hp').html() - 10;
 	if (hp == 0) {
